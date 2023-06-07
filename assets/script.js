@@ -1,3 +1,5 @@
+// Variables
+// Variable du tableau des slides
 const slides = [
   {
     image: "slide1.jpg",
@@ -18,17 +20,55 @@ const slides = [
   },
 ];
 
-// turn-left arrow
-// Création de la variable arrowLeft et lors du clique message d'alerte
+// Variables "flèches"
 const arrowLeft = document.querySelector(".arrow_left");
-arrowLeft.addEventListener("click", () => {
-  alert("Je tourne à gauche");
-});
-
-
-// Création de la variable arrowRight et lors du clique message dans la console
 const arrowRight = document.querySelector(".arrow_right");
-arrowRight.addEventListener("click", () => {
-console.log("je tourne à droite");
+let nowSlide = 0;
+const imgBanner = document.querySelector(".banner-img");
+const bannerTagLine = document.querySelector("#banner p");
+const emptycircle = document.querySelectorAll(".dot");
+
+// Partie flèche
+// left arrow
+// clique = message d'alerte
+arrowLeft.addEventListener("click", () => {
+  console.log("Je tourne à gauche");
 });
 
+// right arrow
+// lors du clique message dans la console
+arrowRight.addEventListener("click", () => {
+  console.log("je tourne à droite");
+});
+
+
+// Partie défilement du carousel
+
+// () appelé à chaque mise a jour du diapo
+function updateSlide() {
+  imgBanner.src = `./assets/images/slideshow/${slides[nowSlide].image}`;
+  bannerTagLine.innerHTML = slides[nowSlide].tagLine;
+  emptycircle.forEach((dot, index) => {
+    if (index === nowSlide) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  });
+}
+
+arrowRight.addEventListener("click", () => {
+  nowSlide++;
+  if (nowSlide >= slides.length) {
+    nowSlide = 0;
+  }
+  updateSlide();
+});
+
+arrowLeft.addEventListener("click", () => {
+  nowSlide--;
+  if (nowSlide < 0) {
+    nowSlide = slides.length - 1;
+  }
+  updateSlide();
+});
