@@ -19,13 +19,16 @@ const slides = [
 ];
 
 // turn-left arrow
-let arrowLeft = document.querySelector(".arrow_left");
-arrowLeft.addEventListener("click", function () {
+// Création de la variable arrowLeft et lors du clique message d'alerte
+const arrowLeft = document.querySelector(".arrow_left");
+arrowLeft.addEventListener("click", () => {
   alert("Je tourne à gauche");
 });
 
-// turn-right arrow
-let arrowRight = document.querySelector(".arrow_right");
-arrowRight.addEventListener("click", function () {
-  alert("je tourne à droite");
+
+// Création de la variable arrowRight et lors du clique message dans la console
+const arrowRight = document.querySelector(".arrow_right");
+arrowRight.addEventListener("click", () => {
+console.log("je tourne à droite");
 });
+
