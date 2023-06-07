@@ -19,7 +19,6 @@ const slides = [
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
 ];
-
 // Variables "flèches"
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
@@ -28,7 +27,6 @@ let nowSlide = 0;
 const imgBanner = document.querySelector(".banner-img");
 const bannerTagLine = document.querySelector("#banner p");
 const emptycircle = document.querySelectorAll(".dot");
-
 
 
 
@@ -48,7 +46,10 @@ arrowRight.addEventListener("click", () => {
 
 // Partie défilement du carousel
 
-// () appelée à chaque mise a jour du diapo
+// () appelée à chaque clique sur les flèches du diapo
+// changement: d'un slide a côté + modifications de la div (p+titre) innerHTML +
+// si index est = à la slide actuelle la classe point séléctionné est active
+// les autres point reste vide.
 function updateSlide() {
   imgBanner.src = `./assets/images/slideshow/${slides[nowSlide].image}`;
   bannerTagLine.innerHTML = slides[nowSlide].tagLine;
@@ -70,6 +71,7 @@ arrowRight.addEventListener("click", () => {
   updateSlide();
 });
 
+// clique sur la flèche gauche reviens de 1 en arrière et active la () updateSlide
 arrowLeft.addEventListener("click", () => {
   nowSlide--;
   if (nowSlide < 0) {
@@ -77,3 +79,6 @@ arrowLeft.addEventListener("click", () => {
   }
   updateSlide();
 });
+
+// si la slides.length arrive à la fin elle repart de nowSlide = 0
+// si elle revient slides.length =-1
