@@ -23,10 +23,14 @@ const slides = [
 // Variables "flèches"
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
+// Variables données de la bannière
 let nowSlide = 0;
 const imgBanner = document.querySelector(".banner-img");
 const bannerTagLine = document.querySelector("#banner p");
 const emptycircle = document.querySelectorAll(".dot");
+
+
+
 
 // Partie flèche
 // left arrow
@@ -44,7 +48,7 @@ arrowRight.addEventListener("click", () => {
 
 // Partie défilement du carousel
 
-// () appelé à chaque mise a jour du diapo
+// () appelée à chaque mise a jour du diapo
 function updateSlide() {
   imgBanner.src = `./assets/images/slideshow/${slides[nowSlide].image}`;
   bannerTagLine.innerHTML = slides[nowSlide].tagLine;
@@ -57,6 +61,7 @@ function updateSlide() {
   });
 }
 
+// () au clique droit la slide change de 1 et la condition permet de repartir à zéro
 arrowRight.addEventListener("click", () => {
   nowSlide++;
   if (nowSlide >= slides.length) {
