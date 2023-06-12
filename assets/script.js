@@ -47,7 +47,7 @@ arrowRight.addEventListener("click", () => {
 // Partie défilement du carousel
 
 // () appelée à chaque clique sur les flèches du diapo
-// changement: d'un slide a côté + modifications de la div (p+titre) innerHTML +
+// changement: d'une slide a côté + modifications de la div (p+titre) innerHTML +
 // si index est = à la slide actuelle la classe point séléctionné est active
 // les autres point reste vide.
 function updateSlide() {
